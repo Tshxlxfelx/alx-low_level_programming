@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*
- *main - Entry point
+ *main -print line of code using put
  *Return: Always 0 (Success)
 */
 int main(void)
