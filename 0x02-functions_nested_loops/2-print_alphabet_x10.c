@@ -14,5 +14,4 @@ _putchar('a' + j);
 }
 _putchar('\n');
 }
-}
 
