@@ -25,6 +25,5 @@ free(grid[i]);
 }
 
 free(grid);
-		
 }
 
