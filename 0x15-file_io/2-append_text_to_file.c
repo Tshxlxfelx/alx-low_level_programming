@@ -18,17 +18,18 @@ int fd, len = 0, wrlen;
 
 if (filename == NULL)
 	return (-1);
+{
+while (text_content[len] != '\0')
+	len++;
+}
 
 fd = open(filename, O_WRONLY | O_APPEND);
 if (fd == -1)
 	return (-1);
 
-if (text_content != NULL)
+if (len > 0)
 
 {
-while  (text_content[len])
-	len++;
-
 wrlen = write(fd, text_content, len);
 if (wrlen != len)
 {
