@@ -38,4 +38,31 @@ if (fd_to == -1)
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 exit(99);
 }
+do
+{
+r = read(fd_from, buffer, BUFFER_SIZE);
+if (r == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit(98);
+}
+w = write(fd_to, buffer, r);
+if(w == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+exit(99);
+}
+}
+while (r > 0);
+if (close(fd_from) == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+exit(100);
+}
+if (close(fd_to) == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+exit(100);
+}
+return (0);
 }
